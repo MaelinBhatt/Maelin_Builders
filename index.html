@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dceeff" />
+    <title>Hello, Maelin!</title>
+    <style>
+      :root {
+        color: #273848;
+        background: #dceeff;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 15% 20%, #fff9e8 0 4%, transparent 4.2%),
+          radial-gradient(circle at 85% 72%, #ffffffa8 0 6%, transparent 6.2%),
+          linear-gradient(160deg, #effaff 0%, #cbe8fa 100%);
+      }
+
+      .scene {
+        position: relative;
+        width: min(88vw, 650px);
+        padding: 4.5rem 2.5rem 3.75rem;
+        text-align: center;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #29495b;
+        font-size: clamp(3.25rem, 10vw, 6.5rem);
+        font-weight: 500;
+        line-height: .95;
+        text-shadow: 0 3px 0 #ffffffa8;
+        transform: rotate(-2deg);
+      }
+
+      .bird {
+        position: relative;
+        width: 210px;
+        height: 145px;
+        margin: 1.8rem auto 0;
+      }
+
+      .body {
+        position: absolute;
+        right: 8px;
+        bottom: 16px;
+        width: 130px;
+        height: 100px;
+        border-radius: 57% 43% 52% 48%;
+        background: #f3a84f;
+        box-shadow: inset -14px -10px #df843b, 0 9px 0 #b46b3833;
+      }
+
+      .wing {
+        position: absolute;
+        right: 43px;
+        bottom: 33px;
+        width: 76px;
+        height: 54px;
+        border-radius: 65% 20% 65% 28%;
+        background: #d97943;
+        transform: rotate(-18deg);
+      }
+
+      .head {
+        position: absolute;
+        top: 8px;
+        right: 86px;
+        width: 74px;
+        height: 75px;
+        border-radius: 50%;
+        background: #f7b95d;
+      }
+
+      .eye {
+        position: absolute;
+        top: 29px;
+        right: 110px;
+        z-index: 1;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #273848;
+      }
+
+      .beak {
+        position: absolute;
+        top: 40px;
+        right: 60px;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 31px solid #e8753d;
+      }
+
+      .tail {
+        position: absolute;
+        left: 23px;
+        bottom: 33px;
+        width: 75px;
+        height: 47px;
+        border-radius: 100% 0 100% 0;
+        background: #e98e45;
+        transform: rotate(-24deg);
+      }
+
+      .branch {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 13px;
+        border-radius: 50%;
+        background: #82553c;
+        transform: rotate(-4deg);
+      }
+
+      .branch::after {
+        content: "";
+        position: absolute;
+        left: 32px;
+        bottom: 8px;
+        width: 52px;
+        height: 11px;
+        border-radius: 50%;
+        background: #82553c;
+        transform: rotate(-34deg);
+        transform-origin: right;
+      }
+
+      .note {
+        position: absolute;
+        font-size: 2.4rem;
+        color: #5589a5;
+        animation: float 3s ease-in-out infinite alternate;
+      }
+
+      .note.one { top: 40%; left: 7%; }
+      .note.two { top: 21%; right: 5%; animation-delay: -1.4s; }
+
+      @keyframes float { to { transform: translateY(-10px) rotate(8deg); } }
+    </style>
+  </head>
+  <body>
+    <main class="scene">
+      <span class="note one" aria-hidden="true">♪</span>
+      <span class="note two" aria-hidden="true">♫</span>
+      <h1>Hello, Maelin!</h1>
+      <div class="bird" role="img" aria-label="A cheerful orange bird perched on a branch">
+        <div class="tail"></div><div class="body"></div><div class="wing"></div>
+        <div class="head"></div><div class="eye"></div><div class="beak"></div><div class="branch"></div>
+      </div>
+    </main>
+  </body>
+</html>
