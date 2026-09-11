@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dceeff" />
+    <title>Hello, Maelin!</title>
+    <style>
+      :root {
+        color: #273848;
+        background: #dceeff;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 15% 20%, #fff9e8 0 4%, transparent 4.2%),
+          radial-gradient(circle at 85% 72%, #ffffffa8 0 6%, transparent 6.2%),
+          linear-gradient(160deg, #effaff 0%, #cbe8fa 100%);
+      }
+
+      .scene {
+        position: relative;
+        width: min(88vw, 650px);
+        padding: 4.5rem 2.5rem 3.75rem;
+        text-align: center;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #29495b;
+        font-size: clamp(3.25rem, 10vw, 6.5rem);
+        font-weight: 500;
+        line-height: .95;
+        text-shadow: 0 3px 0 #ffffffa8;
+        transform: rotate(-2deg);
+      }
+
+      .bird {
+        position: relative;
+        width: 230px;
+        height: 190px;
+        margin: 1.8rem auto 0;
+      }
+
+      .body {
+        position: absolute;
+        right: 14px;
+        bottom: 20px;
+        width: 137px;
+        height: 119px;
+        border-radius: 60% 40% 50% 47%;
+        background: #dc2638;
+        box-shadow: inset -15px -11px #ab1830, 0 9px 0 #8e243433;
+      }
+
+      .wing {
+        position: absolute;
+        right: 44px;
+        bottom: 39px;
+        z-index: 1;
+        width: 87px;
+        height: 79px;
+        overflow: hidden;
+        border-radius: 66% 20% 67% 27%;
+        background: #f1bf31;
+        transform: rotate(-17deg);
+      }
+
+      .wing::after {
+        content: "";
+        position: absolute;
+        right: -13px;
+        bottom: -19px;
+        width: 91px;
+        height: 50px;
+        border-radius: 58% 8% 57% 25%;
+        background: #1878bc;
+      }
+
+      .head {
+        position: absolute;
+        top: 2px;
+        right: 85px;
+        z-index: 2;
+        width: 81px;
+        height: 86px;
+        border-radius: 55% 48% 50% 48%;
+        background: #e02b3d;
+      }
+
+      .face {
+        position: absolute;
+        top: 21px;
+        right: 82px;
+        z-index: 3;
+        width: 47px;
+        height: 49px;
+        border-radius: 53% 45% 53% 42%;
+        background: #fff5df;
+        transform: rotate(-10deg);
+      }
+
+      .eye {
+        position: absolute;
+        top: 33px;
+        right: 105px;
+        z-index: 4;
+        width: 13px;
+        height: 13px;
+        border: 3px solid #f3d46a;
+        border-radius: 50%;
+        background: #1b2731;
+      }
+
+      .beak {
+        position: absolute;
+        top: 42px;
+        right: 47px;
+        z-index: 2;
+        width: 39px;
+        height: 34px;
+        border-radius: 10% 70% 70% 55%;
+        background: #f0d6a0;
+        box-shadow: inset 0 -11px #2c3941;
+        transform: rotate(8deg);
+      }
+
+      .tail {
+        position: absolute;
+        left: 26px;
+        bottom: 22px;
+        width: 103px;
+        height: 52px;
+        border-radius: 90% 0 90% 12%;
+        background: linear-gradient(115deg, #e02b3d 0 29%, #f0bf32 30% 56%, #1878bc 57%);
+        transform: rotate(-43deg);
+      }
+
+      .branch {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 13px;
+        border-radius: 50%;
+        background: #82553c;
+        transform: rotate(-4deg);
+      }
+
+      .branch::after {
+        content: "";
+        position: absolute;
+        left: 32px;
+        bottom: 8px;
+        width: 52px;
+        height: 11px;
+        border-radius: 50%;
+        background: #82553c;
+        transform: rotate(-34deg);
+        transform-origin: right;
+      }
+
+      .note {
+        position: absolute;
+        font-size: 2.4rem;
+        color: #5589a5;
+        animation: float 3s ease-in-out infinite alternate;
+      }
+
+      .note.one { top: 40%; left: 7%; }
+      .note.two { top: 21%; right: 5%; animation-delay: -1.4s; }
+
+      @keyframes float { to { transform: translateY(-10px) rotate(8deg); } }
+    </style>
+  </head>
+  <body>
+    <main class="scene">
+      <span class="note one" aria-hidden="true">♪</span>
+      <span class="note two" aria-hidden="true">♫</span>
+      <h1>Hello, Maelin!</h1>
+      <div class="bird" role="img" aria-label="A cheerful scarlet macaw perched on a branch">
+        <div class="tail"></div><div class="body"></div><div class="wing"></div>
+        <div class="head"></div><div class="face"></div><div class="eye"></div><div class="beak"></div><div class="branch"></div>
+      </div>
+    </main>
+  </body>
+</html>
