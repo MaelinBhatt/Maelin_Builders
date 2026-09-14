@@ -29,9 +29,9 @@
       .stat-label { display:block; color:var(--muted); font-size:.67rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
       .stat-value { display:block; margin-top:.28rem; font-family:"DM Mono",monospace; font-size:1.25rem; font-weight:500; }
       .passage-label { display:flex; align-items:center; justify-content:space-between; margin-bottom:.7rem; color:var(--muted); font-size:.73rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-      .passage { min-height:130px; padding:1.1rem 1.2rem; border:1px solid #2b3e5a; border-radius:15px; color:#6f829e; background:#091525a8; font-family:"DM Mono",monospace; font-size:clamp(.92rem, 2vw, 1.08rem); line-height:1.9; letter-spacing:.01em; transition:border-color .25s, box-shadow .25s; }
+      .passage { min-height:130px; padding:1.1rem 1.2rem; border:1px solid #2b3e5a; border-radius:15px; color:#6f829e; background:#091525a8; font-family:"DM Mono",monospace; font-size:clamp(.92rem, 2vw, 1.08rem); line-height:1.9; letter-spacing:.01em; overflow-wrap:break-word; transition:border-color .25s, box-shadow .25s; }
       .passage:focus-within { border-color:#5e96ed; box-shadow:0 0 0 4px #6598e820; }
-      .passage span { border-radius:3px; transition:color .12s, background .12s; }
+      .passage span { border-radius:3px; white-space:pre-wrap; transition:color .12s, background .12s; }
       .passage .correct { color:#e5f3ff; }
       .passage .incorrect { color:#ff9ca3; background:#ff697426; text-decoration:underline; text-decoration-color:#ff8590; text-underline-offset:3px; }
       .passage .current { color:#fff; background:#6097ef47; animation:caret .85s ease-in-out infinite alternate; }
@@ -80,7 +80,7 @@
       const formatTime = seconds => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
       const elapsed = () => startedAt ? Math.max(1, Math.floor((Date.now() - startedAt) / 1000)) : 0;
       const metrics = () => { const typed = input.value; const correct = [...typed].filter((char, i) => char === passage[i]).length; const accuracy = typed.length ? Math.round((correct / typed.length) * 100) : 100; const seconds = elapsed(); const wpm = seconds ? Math.round((correct / 5) / (seconds / 60)) : 0; return { correct, accuracy, seconds, wpm }; };
-      function renderPassage() { const typed = input.value; passageEl.innerHTML = [...passage].map((char, i) => { let state = i < typed.length ? (typed[i] === char ? 'correct' : 'incorrect') : i === typed.length && !complete ? 'current' : ''; return `<span class="${state}">${char === ' ' ? '&nbsp;' : char}</span>`; }).join(''); }
+      function renderPassage() { const typed = input.value; passageEl.innerHTML = [...passage].map((char, i) => { let state = i < typed.length ? (typed[i] === char ? 'correct' : 'incorrect') : i === typed.length && !complete ? 'current' : ''; return `<span class="${state}">${char}</span>`; }).join(''); }
       function update() { const data = metrics(); timeEl.textContent = formatTime(data.seconds); wpmEl.textContent = `${data.wpm} WPM`; accuracyEl.textContent = `${data.accuracy}%`; renderPassage(); }
       function start() { if (!startedAt) { startedAt = Date.now(); timer = setInterval(update, 500); } }
       function finish() { complete = true; clearInterval(timer); update(); input.disabled = true; const {wpm, accuracy, seconds} = metrics(); resultCopy.textContent = `${wpm} WPM · ${accuracy}% accuracy · ${formatTime(seconds)} total time`; result.classList.add('show'); }
