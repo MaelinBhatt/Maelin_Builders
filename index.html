@@ -3,164 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#dceeff" />
-    <title>Hello, Maelin!</title>
+    <meta name="theme-color" content="#063b58" />
+    <title>Typewell — Typing Speed Test</title>
     <style>
-      :root {
-        color: #273848;
-        background: #dceeff;
-        font-family: "Segoe Script", "Brush Script MT", cursive;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 15% 20%, #fff9e8 0 4%, transparent 4.2%),
-          radial-gradient(circle at 85% 72%, #ffffffa8 0 6%, transparent 6.2%),
-          linear-gradient(160deg, #effaff 0%, #cbe8fa 100%);
-      }
-
-      .scene {
-        position: relative;
-        width: min(88vw, 650px);
-        padding: 4.5rem 2.5rem 3.75rem;
-        text-align: center;
-      }
-
-      h1 {
-        position: relative;
-        z-index: 1;
-        margin: 0;
-        color: #29495b;
-        font-size: clamp(3.25rem, 10vw, 6.5rem);
-        font-weight: 500;
-        line-height: .95;
-        text-shadow: 0 3px 0 #ffffffa8;
-        transform: rotate(-2deg);
-      }
-
-      .bird {
-        position: relative;
-        width: 210px;
-        height: 145px;
-        margin: 1.8rem auto 0;
-      }
-
-      .body {
-        position: absolute;
-        right: 8px;
-        bottom: 16px;
-        width: 130px;
-        height: 100px;
-        border-radius: 57% 43% 52% 48%;
-        background: #f3a84f;
-        box-shadow: inset -14px -10px #df843b, 0 9px 0 #b46b3833;
-      }
-
-      .wing {
-        position: absolute;
-        right: 43px;
-        bottom: 33px;
-        width: 76px;
-        height: 54px;
-        border-radius: 65% 20% 65% 28%;
-        background: #d97943;
-        transform: rotate(-18deg);
-      }
-
-      .head {
-        position: absolute;
-        top: 8px;
-        right: 86px;
-        width: 74px;
-        height: 75px;
-        border-radius: 50%;
-        background: #f7b95d;
-      }
-
-      .eye {
-        position: absolute;
-        top: 29px;
-        right: 110px;
-        z-index: 1;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: #273848;
-      }
-
-      .beak {
-        position: absolute;
-        top: 40px;
-        right: 60px;
-        border-top: 12px solid transparent;
-        border-bottom: 12px solid transparent;
-        border-left: 31px solid #e8753d;
-      }
-
-      .tail {
-        position: absolute;
-        left: 23px;
-        bottom: 33px;
-        width: 75px;
-        height: 47px;
-        border-radius: 100% 0 100% 0;
-        background: #e98e45;
-        transform: rotate(-24deg);
-      }
-
-      .branch {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 13px;
-        border-radius: 50%;
-        background: #82553c;
-        transform: rotate(-4deg);
-      }
-
-      .branch::after {
-        content: "";
-        position: absolute;
-        left: 32px;
-        bottom: 8px;
-        width: 52px;
-        height: 11px;
-        border-radius: 50%;
-        background: #82553c;
-        transform: rotate(-34deg);
-        transform-origin: right;
-      }
-
-      .note {
-        position: absolute;
-        font-size: 2.4rem;
-        color: #5589a5;
-        animation: float 3s ease-in-out infinite alternate;
-      }
-
-      .note.one { top: 40%; left: 7%; }
-      .note.two { top: 21%; right: 5%; animation-delay: -1.4s; }
-
-      @keyframes float { to { transform: translateY(-10px) rotate(8deg); } }
+      @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+      :root { --foam:#edf9f6; --pale:#c6e6e9; --sea:#063b58; --deep:#022e49; --blue:#087fa8; --aqua:#37c5c3; --coral:#ff9478; --line:#62bdc4; }
+      * { box-sizing:border-box; }
+      body { min-height:100vh; overflow-x:hidden; margin:0; color:var(--foam); font-family:"Libre Baskerville", Georgia, serif; background:linear-gradient(160deg, #064e70 0%, var(--sea) 44%, var(--deep) 100%); }
+      body::before, body::after { content:""; position:fixed; inset:auto; z-index:-1; pointer-events:none; border-radius:50%; opacity:.5; }
+      body::before { width:48rem; height:23rem; top:-12rem; left:-10rem; border:2px solid #79d9d42c; box-shadow:0 0 0 3rem #84eee70c, 0 0 0 7rem #7de7e609; transform:rotate(-17deg); }
+      body::after { width:52rem; height:22rem; right:-20rem; bottom:-14rem; border:2px solid #7bdde12b; box-shadow:0 0 0 3rem #6ce0e30b; transform:rotate(18deg); }
+      .shell { width:min(100% - 2rem, 970px); margin:auto; padding:clamp(1.4rem, 5vw, 4.5rem) 0 2rem; }
+      header { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:clamp(2rem, 5vw, 4.2rem); }
+      .brand { display:flex; align-items:center; gap:.7rem; font-family:"DM Serif Display", Georgia, serif; font-size:1.45rem; letter-spacing:.01em; }
+      .brand-mark { width:2rem; height:2rem; display:grid; place-items:center; border:1px solid #b2f3e3; border-radius:50% 50% 50% 13%; color:#01465e; background:#a7efdf; font-size:1rem; transform:rotate(-17deg); }
+      .header-note, .eyebrow, .stat-label, .passage-label { font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+      .header-note, .passage-label { color:#a9dadd; } .eyebrow { margin:0 0 .75rem; color:#8ce8d7; }
+      .hero { position:relative; max-width:680px; margin-bottom:2.3rem; } .scene-art { position:absolute; right:-13rem; top:-1.8rem; width:10rem; height:10rem; display:grid; place-items:center; border:1px solid #8ee5dd70; border-radius:46% 54% 60% 40%; background:radial-gradient(circle at 35% 30%, #c4fff076, #36b9c338); box-shadow:0 0 0 1rem #7adecf10; font-size:4.6rem; filter:drop-shadow(0 16px 18px #001d3770); transform:rotate(12deg); transition:background .45s, transform .45s; } h1 { margin:0; font-family:"DM Serif Display", Georgia, serif; font-size:clamp(2.65rem, 7vw, 5.2rem); font-weight:400; line-height:.98; letter-spacing:-.045em; }
+      .intro { max-width:590px; margin:1.2rem 0 0; color:var(--pale); font-size:clamp(.9rem, 2vw, 1.03rem); line-height:1.9; }
+      .lesson-picker { display:grid; grid-template-columns:repeat(5, 1fr); gap:.55rem; margin:1.5rem 0; } .lesson { min-height:4.5rem; padding:.55rem .4rem; border:1px solid #8bd9d34a; border-radius:13px; color:#bbdfe0; background:#02334c80; cursor:pointer; font:700 .64rem/1.25 "Libre Baskerville", Georgia, serif; text-align:center; transition:transform .18s, border-color .18s, background .18s; } .lesson:hover, .lesson[aria-pressed="true"] { border-color:#bcf8e8; background:#0c69809e; transform:translateY(-2px); } .lesson-icon { display:block; margin-bottom:.2rem; font-size:1.25rem; } .test-card { position:relative; padding:clamp(1.1rem, 3vw, 2rem); overflow:visible; border:1px solid #78d8d470; border-radius:25px; background:linear-gradient(145deg, #08617cbf, #043b5bd9); box-shadow:0 27px 65px #011a2e82, inset 0 1px #d6fff72b; backdrop-filter:blur(18px); }
+      .dolphin { position:absolute; right:clamp(1rem, 8vw, 6rem); top:-5.8rem; z-index:3; width:145px; opacity:0; pointer-events:none; transform:translateY(8rem) rotate(12deg); }
+      .dolphin.show { animation:dolphin-rise 1.15s cubic-bezier(.17,.84,.32,1.15) both; } @keyframes dolphin-rise { 0% { opacity:0; transform:translateY(8rem) rotate(12deg); } 35% { opacity:1; } 70% { transform:translateY(-.2rem) rotate(-8deg); } 100% { opacity:1; transform:translateY(.35rem) rotate(-4deg); } }
+      .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-bottom:1.5rem; } .stat { min-width:0; padding:.85rem .95rem; border:1px solid #8bd9d34a; border-radius:13px; background:#02334c9c; } .stat-label { display:block; color:#9dcdd1; } .stat-value { display:block; margin-top:.35rem; font-size:1.1rem; font-weight:700; color:#f0fbf5; }
+      .passage-label { display:flex; justify-content:space-between; margin-bottom:.75rem; } .passage { min-height:135px; padding:1.15rem 1.2rem; overflow-wrap:break-word; border:1px solid #83dbd053; border-radius:16px; color:#99c8ca; background:#022f4899; font-size:clamp(.93rem, 2vw, 1.04rem); line-height:2; } .passage span { border-radius:3px; white-space:pre-wrap; transition:color .12s, background .12s; } .passage .correct { color:#f0fbf5; } .passage .incorrect { color:#ffd0c6; background:#ea715a46; text-decoration:underline; text-decoration-color:var(--coral); text-underline-offset:3px; } .passage .current { color:#fff; background:#59d6ca65; animation:caret .8s ease-in-out infinite alternate; } @keyframes caret { to { background:#59d6ca18; } }
+      .input-wrap { margin-top:1rem; } textarea { width:100%; min-height:105px; resize:vertical; padding:1rem 1.1rem; outline:0; border:1px solid #85dcd785; border-radius:16px; color:var(--foam); background:#022e47; font:400 .92rem/1.75 "Libre Baskerville", Georgia, serif; transition:border-color .2s, box-shadow .2s; } textarea::placeholder { color:#77a9b5; } textarea:focus { border-color:#a2f2dc; box-shadow:0 0 0 4px #78edda2b; } textarea:disabled { opacity:.48; cursor:not-allowed; }
+      .footer-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1rem; } .hint { margin:0; color:#afd4d5; font-size:.76rem; line-height:1.55; } button { display:inline-flex; align-items:center; justify-content:center; gap:.48rem; padding:.8rem 1.05rem; border:1px solid #b6f6e5; border-radius:999px; cursor:pointer; color:#023b50; background:linear-gradient(135deg, #d5faf0, #77e5d4); font:700 .74rem/1 "Libre Baskerville", Georgia, serif; letter-spacing:.03em; transition:transform .18s, box-shadow .18s, filter .18s; } button:hover { filter:brightness(1.07); box-shadow:0 9px 24px #8ff4db59; transform:translateY(-2px); } button:active { transform:translateY(0); } button svg { width:15px; }
+      .start-gate { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:1rem 0 0; padding:1rem 1.1rem; border:1px solid #7ce0d26b; border-radius:16px; background:#07516b8c; animation:rise .4s ease-out; } .start-gate.hidden { display:none; } .start-gate p { margin:0; color:#d3f1e9; font-size:.78rem; font-style:italic; line-height:1.55; } .start-button { flex:none; } .result { display:none; margin-top:1.25rem; padding:1.15rem; border:1px solid #72e4c487; border-radius:15px; background:#07584e99; animation:rise .35s ease-out; } .result.show { display:flex; align-items:center; justify-content:space-between; gap:1rem; } .result strong { display:block; color:#caffdf; font-size:.95rem; } .result span { display:block; margin-top:.3rem; color:#c0e8d8; font-size:.78rem; } @keyframes rise { from { opacity:0; transform:translateY(8px); } }
+      @media (max-width:760px) { .scene-art { right:0; top:-1.1rem; width:5.8rem; height:5.8rem; font-size:2.8rem; opacity:.75; } .lesson-picker { grid-template-columns:repeat(2, 1fr); } } @media (max-width:560px) { .shell { width:min(100% - 1.25rem, 970px); } header { margin-bottom:2.7rem; } .header-note { display:none; } .test-card { border-radius:20px; } .dolphin { width:112px; top:-4.45rem; right:.4rem; } .stats { gap:.45rem; } .stat { padding:.7rem .6rem; } .stat-value { font-size:.96rem; } .passage { min-height:170px; padding:.9rem; } .footer-row, .start-gate { align-items:stretch; flex-direction:column; } button { width:100%; } }
     </style>
   </head>
   <body>
-    <main class="scene">
-      <span class="note one" aria-hidden="true">♪</span>
-      <span class="note two" aria-hidden="true">♫</span>
-      <h1>Hello, Maelin!</h1>
-      <div class="bird" role="img" aria-label="A cheerful orange bird perched on a branch">
-        <div class="tail"></div><div class="body"></div><div class="wing"></div>
-        <div class="head"></div><div class="eye"></div><div class="beak"></div><div class="branch"></div>
-      </div>
+    <main class="shell">
+      <header><div class="brand"><span class="brand-mark">T.</span>typewell</div><span class="header-note">A tide of good habits</span></header>
+      <section class="hero"><div class="scene-art" id="scene-art" aria-hidden="true">🐬</div><p class="eyebrow" id="lesson-kicker">Lesson 01 · Coral reef</p><h1 id="lesson-title">Find your rhythm<br>beneath the waves.</h1><p class="intro" id="lesson-description">Take a breath, let the current settle, and type at your own pace. Your clock begins with your first word.</p></section>
+      <div class="lesson-picker" id="lesson-picker" aria-label="Choose a typing lesson"></div>
+      <section class="test-card" aria-label="Typing speed test">
+        <svg class="dolphin" id="dolphin" viewBox="0 0 210 130" role="img" aria-label="A cheerful dolphin leaping from the water"><path d="M21 100c30-8 40-28 52-48-15-5-21-15-21-15 22 6 36 12 50 9 23-5 42-31 70-18 12 6 15 17 9 26-6 8-20 10-28 5-7 18-26 31-47 35-25 5-54-1-85 11Z" fill="#9edfe2"/><path d="M88 67c26 7 54 1 70-13 8 8 21 10 28 5-9 19-32 35-61 40-24 4-45-1-60 6 9-12 15-26 23-38Z" fill="#4fb7c4"/><path d="M120 46c8-9 20-14 31-12-8-9-19-14-32-11Z" fill="#73cad1"/><path d="M70 63 46 50l17 25Z" fill="#61bfca"/><circle cx="159" cy="43" r="3" fill="#063b58"/><path d="M166 56c7 4 14 3 19-1" fill="none" stroke="#063b58" stroke-width="3" stroke-linecap="round"/><path d="M35 104c-10 4-17 9-20 16 13-4 24-4 34 0-4-7-8-11-14-16Z" fill="#79d8d7"/></svg>
+        <div class="stats" aria-live="polite"><div class="stat"><span class="stat-label">Time</span><span class="stat-value" id="time">0:00</span></div><div class="stat"><span class="stat-label">Current</span><span class="stat-value" id="wpm">0 WPM</span></div><div class="stat"><span class="stat-label">Accuracy</span><span class="stat-value" id="accuracy">100%</span></div></div>
+        <div class="passage-label"><span>Your passage</span><span id="word-count"></span></div><div class="passage" id="passage" aria-label="Passage to type"></div>
+        <div class="input-wrap"><textarea id="typing-input" disabled spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Press Start test to begin…" aria-label="Type the passage here"></textarea></div>
+        <div class="start-gate" id="start-gate"><p>A friendly dolphin is waiting to send you on your way.</p><button class="start-button" type="button" id="start-button">Start test <span aria-hidden="true">↗</span></button></div>
+        <div class="footer-row"><p class="hint">Errors are highlighted in the passage as you type.</p><button type="button" id="restart">New passage <span aria-hidden="true">↻</span></button></div>
+        <div class="result" id="result" role="status"><div><strong>You rode the current beautifully.</strong><span id="result-copy"></span></div><button type="button" id="new-test">Try another</button></div>
+      </section>
     </main>
+    <script>
+      const lessons = [
+        {name:'Coral reef', icon:'🐠', title:'Find your rhythm<br>beneath the waves.', description:'Move gently through a bright reef, one careful word at a time.', colors:['#063b58','#022e49','#37c5c3'], passage:'Coral gardens thrive when countless small creatures make room for one another, turning sunlight and patience into a living city beneath the sea.'},
+        {name:'Moon tide', icon:'🌙', title:'Let the moon set<br>your quiet pace.', description:'A silver current carries every sentence across the night water.', colors:['#242b65','#111638','#aaa8ed'], passage:'Moonlight draws a quiet path across the harbor, while the tide keeps its patient rhythm against the sleeping shore.'},
+        {name:'Storm watch', icon:'⛈️', title:'Stay steady<br>through the weather.', description:'Keep your focus while the horizon gathers its strength.', colors:['#394a64','#142133','#89b0c9'], passage:'Clouds gather over the open water, but a steady hand and a clear course can guide a boat safely through the changing wind.'},
+        {name:'Tropical lagoon', icon:'🌺', title:'Drift into a<br>clear blue day.', description:'Warm water, bright blooms, and an unhurried flow.', colors:['#007b85','#004e69','#f3a1a1'], passage:'A warm lagoon holds the color of polished glass, with palm shadows moving slowly across the sand below.'},
+        {name:'Polar current', icon:'🐋', title:'Breathe deep in<br>the northern blue.', description:'Make space for calm, crisp, deliberate keystrokes.', colors:['#527e96','#1e3a55','#dcf8fc'], passage:'Far beyond the ice, a whale rises quietly for air, then returns to the blue silence beneath the frozen horizon.'},
+        {name:'Sunrise sail', icon:'⛵', title:'Begin where the<br>light meets water.', description:'Let a new horizon make the next line feel possible.', colors:['#e07355','#803950','#ffd48d'], passage:'At sunrise the sails catch a gentle breeze, and the first golden line of day opens across the calm water.'},
+        {name:'Kelp forest', icon:'🌿', title:'Grow slowly,<br>move with purpose.', description:'Follow the swaying green paths below the surface.', colors:['#27665b','#113d3b','#91c87f'], passage:'Tall kelp sways in the current like an underwater forest, sheltering small fish among ribbons of green light.'},
+        {name:'Deep blue', icon:'🪼', title:'Explore the<br>beautiful unknown.', description:'A deep-sea lesson for focused, glowing concentration.', colors:['#14134c','#060526','#8b7cff'], passage:'In the deep ocean, small lights drift through the dark, revealing a world that moves with quiet mystery and grace.'},
+        {name:'Sea glass', icon:'🫧', title:'Smooth every edge<br>with practice.', description:'Let repetition turn effort into a softer, clearer skill.', colors:['#4f8c8e','#215c68','#b7e3ce'], passage:'Years of waves can soften a broken piece of glass into something luminous, smooth, and ready to be found again.'},
+        {name:'Harbor home', icon:'⚓', title:'Return to what<br>keeps you grounded.', description:'Finish with the steady comfort of a familiar shore.', colors:['#375d78','#1c344e','#d9b67d'], passage:'Lanterns glow along the harbor wall as boats settle into their places, each one held by a strong and trusted line.'}
+      ];
+      const input = document.querySelector('#typing-input'), passageEl = document.querySelector('#passage'), timeEl = document.querySelector('#time'), wpmEl = document.querySelector('#wpm'), accuracyEl = document.querySelector('#accuracy'), result = document.querySelector('#result'), resultCopy = document.querySelector('#result-copy'), startGate = document.querySelector('#start-gate'), dolphin = document.querySelector('#dolphin'), picker = document.querySelector('#lesson-picker');
+      let lessonIndex = 0, passage = '', startedAt = null, timer = null, complete = false;
+      const formatTime = seconds => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+      const elapsed = () => startedAt ? Math.max(1, Math.floor((Date.now() - startedAt) / 1000)) : 0;
+      const metrics = () => { const typed = input.value, correct = [...typed].filter((char, i) => char === passage[i]).length, accuracy = typed.length ? Math.round((correct / typed.length) * 100) : 100, seconds = elapsed(), wpm = seconds ? Math.round((correct / 5) / (seconds / 60)) : 0; return {correct, accuracy, seconds, wpm}; };
+      function renderPassage() { const typed = input.value; passageEl.innerHTML = [...passage].map((char, i) => `<span class="${i < typed.length ? (typed[i] === char ? 'correct' : 'incorrect') : i === typed.length && !complete ? 'current' : ''}">${char}</span>`).join(''); }
+      function update() { const data = metrics(); timeEl.textContent = formatTime(data.seconds); wpmEl.textContent = `${data.wpm} WPM`; accuracyEl.textContent = `${data.accuracy}%`; renderPassage(); }
+      function renderPicker() { picker.innerHTML = lessons.map((lesson, index) => `<button type="button" class="lesson" aria-pressed="${index === lessonIndex}" data-lesson="${index}"><span class="lesson-icon" aria-hidden="true">${lesson.icon}</span>${lesson.name}</button>`).join(''); }
+      function applyLesson() { const lesson = lessons[lessonIndex]; document.documentElement.style.setProperty('--sea', lesson.colors[0]); document.documentElement.style.setProperty('--deep', lesson.colors[1]); document.documentElement.style.setProperty('--aqua', lesson.colors[2]); document.querySelector('#scene-art').textContent = lesson.icon; document.querySelector('#scene-art').style.background = `radial-gradient(circle at 35% 30%, ${lesson.colors[2]}aa, ${lesson.colors[0]}80)`; document.querySelector('#lesson-kicker').textContent = `Lesson ${String(lessonIndex + 1).padStart(2, '0')} · ${lesson.name}`; document.querySelector('#lesson-title').innerHTML = lesson.title; document.querySelector('#lesson-description').textContent = lesson.description; passage = lesson.passage; renderPicker(); reset(); }
+      function startTimer() { if (!startedAt) { startedAt = Date.now(); timer = setInterval(update, 500); } }
+      function beginTest() { startGate.classList.add('hidden'); dolphin.classList.remove('show'); void dolphin.offsetWidth; dolphin.classList.add('show'); input.disabled = false; input.placeholder = 'The tide is yours — start typing…'; input.focus(); }
+      function finish() { complete = true; clearInterval(timer); update(); input.disabled = true; const {wpm, accuracy, seconds} = metrics(); resultCopy.textContent = `${wpm} WPM · ${accuracy}% accuracy · ${formatTime(seconds)} total time`; result.classList.add('show'); }
+      function reset() { startedAt = null; clearInterval(timer); complete = false; input.value = ''; input.disabled = true; input.placeholder = 'Press Start test to begin…'; startGate.classList.remove('hidden'); dolphin.classList.remove('show'); result.classList.remove('show'); document.querySelector('#word-count').textContent = `${passage.split(' ').length} words`; update(); }
+      input.addEventListener('input', () => { if (complete) return; if (input.value.length) startTimer(); update(); if (input.value === passage) finish(); }); picker.addEventListener('click', event => { const button = event.target.closest('[data-lesson]'); if (!button) return; lessonIndex = Number(button.dataset.lesson); applyLesson(); }); document.querySelector('#start-button').addEventListener('click', beginTest); document.querySelector('#restart').addEventListener('click', () => { lessonIndex = (lessonIndex + 1) % lessons.length; applyLesson(); }); document.querySelector('#new-test').addEventListener('click', () => { lessonIndex = (lessonIndex + 1) % lessons.length; applyLesson(); }); applyLesson();
+    </script>
   </body>
 </html>
